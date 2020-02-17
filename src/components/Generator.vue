@@ -87,20 +87,22 @@ export default Vue.extend({
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
-    max-height: 80%;
+    margin-top: 10vh;
+    max-height: 80vh;
     max-width: 600px;
     padding: 40px;
     width: 70%;
 }
 
 .generator__content {
+    border-bottom: 2px solid #333;
     flex: 2 2 100%;
     overflow-y: auto;
-    padding: 16px;
+    padding: 24px;
+    padding-bottom: 0;
 }
 
 .generator__content-item {
-    padding-bottom: 16px;
+    padding-bottom: 24px;
 }
 </style>

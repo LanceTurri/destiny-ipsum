@@ -35,34 +35,44 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .generator-form {
+    align-items: center;
+    border-bottom: 2px solid #333333;
     display: flex;
     justify-content: center;
-    padding: 8px 0;
+    padding: 8px 0 16px;
 }
 
 .generator-form__button {
-    all: unset;
     align-items: center;
     background: none;
     border: 2px solid #333333;
-    border-radius: 24px;
+    border-radius: 20px;
     color: #333333;
     cursor: pointer;
     display: flex;
-    font-family: monospace;
-    font-size: 20px;
-    font-weight: 700;
-    height: 24px;
+    height: 20px;
     justify-content: center;
-    line-height: 1;
     margin: 0 16px;
-    user-select: none;
+    opacity: 0.8;
+    padding: 0;
     text-shadow: none;
-    width: 24px;
+    transition: 200ms all linear;
+    user-select: none;
+    width: 20px;
+
+    &:hover {
+        background-color: #f5f5f5;
+        opacity: 1.0;
+    }
 }
 
 .generator-form__button-icon {
-    height: 16px;
-    width: 16px;
+    flex-shrink: 0;
+    height: 12px;
+    width: 12px;
+}
+
+.generator-form__count {
+    font-weight: 700;
 }
 </style>
