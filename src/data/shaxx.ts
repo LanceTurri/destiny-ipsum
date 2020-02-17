@@ -106,7 +106,7 @@ export const shaxx = {
             'Execute all targets, and make sure You\'re still standing when the dust settles.',
             'Capture and hold zones to claim victory.',
             'Hold the zones! they\'re the only path to victory.',
-            'Time to fight, Guardians. Capture all zones.',
+            'Time to fight, Guardians.',
             'Capture the zones. they\'re all that matters.',
             'Take those zones, Guardian! Victory demands it.',
             'Focus on the zones. Control them to claim victory.',
@@ -206,14 +206,6 @@ export const shaxx = {
             'They\'ve almost won!',
             'The enemy\'s almost won!' ,
         ],
-        'Heavy': [
-            'Heavy ammo on the way.',
-            'Heavy ammo inbound.' ,
-            'Heavy ammo available.' ,
-            'Good!',
-            'Nice!',
-            'Go! Make them cry!' ,
-        ],
         'Match Result': {
             'Win': [
                 'Good work, Guardian. I could have used you in the field.',
@@ -300,10 +292,6 @@ export const shaxx = {
                 'You\'ve been beaten... this time.',
                 'Defeat... comes for us all.',
                 'Glory comes and goes, Guardian. If you want it, it can be yours again.' ,
-            ],
-            'Tie': [
-                'Tie.',
-                'Tie game.' ,
             ],
             'Mercy Rule': [
                 'Enough! This battle was one-sided.',

@@ -1,13 +1,13 @@
 <template>
     <div class="generator">
         <!-- TODO: Make this into a random greeting -->
-        <h1>Anything you need, Guardian?</h1>
+        <h1>{{ greeting }}</h1>
         <GeneratorForm
             :count="ipsumParagraphs.length"
             @generate="generateParagraph"
             @prune="ipsumParagraphs.pop()"></GeneratorForm>
 
-        <transition-group tag="div" class="generator__content">
+        <transition-group tag="div" class="generator__content" name="fade">
             <p
                 class="generator__content-item"
                 v-for="(paragraph, index) in ipsumParagraphs"
@@ -29,6 +29,23 @@ export default Vue.extend({
     },
     created() {
         this.generateParagraph();
+    },
+    computed: {
+        greeting(): string {
+            const greetings = [
+                'What do you need?',
+                'No need to be polite.',
+                'Let\'s do this.',
+                'The honor is mine, Hivebane.',
+                'The slayer of Oryx.',
+                'Now You\'re ready to get to work.',
+                'Keep it up, Guardian.',
+                'Tick, tock. Get rolling.',
+            ];
+
+            const randomIndex = Math.floor(Math.random() * (greetings.length - 0)) + 0;
+            return greetings[randomIndex];
+        },
     },
     methods: {
         generateParagraph() {
@@ -104,5 +121,15 @@ export default Vue.extend({
 
 .generator__content-item {
     padding-bottom: 24px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 300ms linear;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>
