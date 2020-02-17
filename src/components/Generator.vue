@@ -88,6 +88,7 @@ export default Vue.extend({
     display: flex;
     flex-direction: column;
     margin-top: 10%;
+    max-height: 80%;
     max-width: 600px;
     padding: 40px;
     width: 70%;
@@ -96,6 +97,7 @@ export default Vue.extend({
 .generator__content {
     flex: 2 2 100%;
     overflow-y: auto;
+    padding: 16px;
 }
 
 .generator__content-item {
