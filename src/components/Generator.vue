@@ -11,6 +11,7 @@
 
         <GeneratorForm
             :count="ipsumParagraphs.length"
+            :copyText="stringifiedText"
             @generate="addParagraph"
             @prune="ipsumParagraphs.pop()"></GeneratorForm>
     </div>
@@ -45,6 +46,9 @@ export default Vue.extend({
             const randomIndex = Math.floor(Math.random() * (this.greetings.length - 0)) + 0;
             return this.greetings[randomIndex];
         },
+        stringifiedText(): string {
+            return this.ipsumParagraphs.join('\n\n');
+        },
     },
     methods: {
         async addParagraph(numberOfParagraphs = 1) {
@@ -62,7 +66,6 @@ export default Vue.extend({
             let index = 0;
 
             // TODO: Figure out a better way at limiting character count
-            // TODO: Take into account a user setting for length of paragraphs
             while (paragraph.split('').length < 300) {
                 paragraph += ` ${randomizedLines[index]}`;
                 index++;
@@ -104,9 +107,11 @@ export default Vue.extend({
         setCssVariables() {
             const root = document.documentElement;
 
+            // TODO: Detect if we are on a mobile device and increase the transparency
+
             switch (this.$route.params.character) {
                 case 'cayde':
-                    root.style.setProperty('--generator-bkg-color', 'rgba(102, 51, 48, 1)');
+                    root.style.setProperty('--generator-bkg-color', 'rgba(102, 51, 48, 0.98)');
                     root.style.setProperty('--generator-main-color', '#f5f5f5');
                     root.style.setProperty('--generator-hover-color', '#333333');
                     root.style.setProperty('--generator-box-shadow',

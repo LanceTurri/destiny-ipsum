@@ -97,7 +97,7 @@ export default Vue.extend({
     height: 100%;
     justify-content: flex-start;
     opacity: 0.9;
-    padding: 40px;
+    padding: 16px;
     transition: 200ms all linear;
 
     &:hover {
@@ -122,6 +122,12 @@ export default Vue.extend({
     &--vance {
         background-image: url('../assets/vance.jpg');
         color: #333333;
+    }
+}
+
+@media (min-width: 640px) {
+    .selection__content {
+        padding: 40px;
     }
 }
 </style>
