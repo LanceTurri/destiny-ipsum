@@ -36,10 +36,10 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .generator-form {
     align-items: center;
-    border-bottom: 2px solid #333333;
+    border-top: 2px solid #333;
     display: flex;
     justify-content: center;
-    padding: 8px 0 16px;
+    padding: 12px 0;
 }
 
 .generator-form__button {

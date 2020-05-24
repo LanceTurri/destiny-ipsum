@@ -1,11 +1,6 @@
 <template>
     <div class="generator">
-        <!-- TODO: Make this into a random greeting -->
-        <h1>{{ greeting }}</h1>
-        <GeneratorForm
-            :count="ipsumParagraphs.length"
-            @generate="generateParagraph"
-            @prune="ipsumParagraphs.pop()"></GeneratorForm>
+        <h1 class="generator__title">{{ greeting }}</h1>
 
         <transition-group tag="div" class="generator__content" name="fade">
             <p
@@ -13,6 +8,11 @@
                 v-for="(paragraph, index) in ipsumParagraphs"
                 :key="`${paragraph.replace(/\s/g, '-')}${index}`">{{ paragraph }}</p>
         </transition-group>
+
+        <GeneratorForm
+            :count="ipsumParagraphs.length"
+            @generate="generateParagraph"
+            @prune="ipsumParagraphs.pop()"></GeneratorForm>
     </div>
 </template>
 
@@ -26,6 +26,12 @@ export default Vue.extend({
         return {
             ipsumParagraphs: [] as string[],
         };
+    },
+    props: {
+        dialogue: {
+            required: true,
+            type: Array,
+        },
     },
     created() {
         this.generateParagraph();
@@ -49,7 +55,7 @@ export default Vue.extend({
     },
     methods: {
         generateParagraph() {
-            const randomizedLines = this.randomizeArray(this.$store.state.currentScript);
+            const randomizedLines = this.randomizeArray(this.dialogue as string[]);
             // TODO: Add setting to being with 'Lorem Ipsum Destiny'
             let paragraph = '';
             let index = 0;
@@ -107,20 +113,25 @@ export default Vue.extend({
     margin-top: 10vh;
     max-height: 80vh;
     max-width: 600px;
-    padding: 40px;
-    width: 70%;
+    padding: 32px 40px;
+    width: 96%;
+}
+
+.generator__title {
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
 }
 
 .generator__content {
-    border-bottom: 2px solid #333;
     flex: 2 2 100%;
     overflow-y: auto;
-    padding: 24px;
-    padding-bottom: 0;
+    margin: 24px 0;
 }
 
 .generator__content-item {
-    padding-bottom: 24px;
+    &:not(:first-child) {
+        padding-top: 24px;
+    }
 }
 
 .fade-enter-active,

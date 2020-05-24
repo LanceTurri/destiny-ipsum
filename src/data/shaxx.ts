@@ -1,4 +1,5 @@
-export const shaxx = {
+// tslint:disable: max-line-length
+export default {
     Tower: [
         'The Crucible is open.',
         'Crucible\'s open.',
