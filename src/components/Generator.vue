@@ -61,7 +61,7 @@ export default Vue.extend({
         },
         generateParagraph(numberOfParagraphs: number = 1) {
             const randomizedLines = this.randomizeArray(this.dialogue as string[]);
-            // TODO: Add setting to being with 'Lorem Ipsum Destiny'
+            // TODO: Add setting to begin with 'Lorem Ipsum Destiny'
             let paragraph = '';
             let index = 0;
 
@@ -106,12 +106,11 @@ export default Vue.extend({
         },
         setCssVariables() {
             const root = document.documentElement;
-
-            // TODO: Detect if we are on a mobile device and increase the transparency
+            const isSmallScreen = window.screen.availWidth < 640;
 
             switch (this.$route.params.character) {
                 case 'cayde':
-                    root.style.setProperty('--generator-bkg-color', 'rgba(102, 51, 48, 0.98)');
+                    root.style.setProperty('--generator-bkg-color', `rgba(102, 51, 48, ${isSmallScreen ? '0.92' : '0.98'})`);
                     root.style.setProperty('--generator-main-color', '#f5f5f5');
                     root.style.setProperty('--generator-hover-color', '#333333');
                     root.style.setProperty('--generator-box-shadow',
@@ -119,7 +118,7 @@ export default Vue.extend({
                     break;
 
                 case 'drifter':
-                    root.style.setProperty('--generator-bkg-color', 'rgba(16, 42, 32, 0.96)');
+                    root.style.setProperty('--generator-bkg-color', `rgba(16, 42, 32, ${isSmallScreen ? '0.9' : '0.96'})`);
                     root.style.setProperty('--generator-main-color', '#d5d5d5');
                     root.style.setProperty('--generator-hover-color', '#333333');
                     root.style.setProperty('--generator-box-shadow',
@@ -127,7 +126,7 @@ export default Vue.extend({
                     break;
 
                 case 'vance':
-                    root.style.setProperty('--generator-bkg-color', 'rgba(228, 222, 86, 0.97)');
+                    root.style.setProperty('--generator-bkg-color', `rgba(228, 222, 86, ${isSmallScreen ? '0.9' : '0.97'})`);
                     root.style.setProperty('--generator-main-color', '#333333');
                     root.style.setProperty('--generator-hover-color', '#f5f5f5');
                     root.style.setProperty('--generator-box-shadow',
@@ -136,7 +135,7 @@ export default Vue.extend({
 
                 case 'shaxx':
                 default:
-                    root.style.setProperty('--generator-bkg-color', 'rgba(155, 31, 23, 0.95)');
+                    root.style.setProperty('--generator-bkg-color', `rgba(155, 31, 23, ${isSmallScreen ? '0.8' : '0.95'})`);
                     root.style.setProperty('--generator-main-color', '#f5f5f5');
                     root.style.setProperty('--generator-hover-color', '#333333');
                     root.style.setProperty('--generator-box-shadow',

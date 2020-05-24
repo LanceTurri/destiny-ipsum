@@ -119,16 +119,6 @@ export default Vue.extend({
     transition: 200ms all linear;
     user-select: none;
 
-    &:hover {
-        background-color: var(--generator-main-color);
-        color: var(--generator-hover-color);
-        opacity: 1.0;
-
-        svg {
-            fill: var(--generator-hover-color);
-        }
-    }
-
     &--border {
         border: 2px solid var(--generator-main-color);
         border-radius: 28px;
@@ -136,11 +126,25 @@ export default Vue.extend({
     }
 
     &--ghost {
-        border: 2px solid white;
+        border: 2px solid var(--generator-main-color);
         border-radius: 28px;
         height: auto;
         line-height: 1;
         padding: 8px 12px;
+    }
+}
+
+@media (min-width: 640px) {
+    .generator-form__button:hover {
+        &:hover {
+            background-color: var(--generator-main-color);
+            color: var(--generator-hover-color);
+            opacity: 1.0;
+
+            svg {
+                fill: var(--generator-hover-color);
+            }
+        }
     }
 }
 

@@ -27,7 +27,7 @@
 }
 
 .about__title {
-    padding-bottom: 8px;
+    padding-bottom: 16px;
 }
 
 .about__contact-link {
