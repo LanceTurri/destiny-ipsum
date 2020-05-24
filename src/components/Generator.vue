@@ -2,7 +2,7 @@
     <div class="generator" :class="`generator--${$route.params.character}`">
         <h1 class="generator__title">{{ greeting }}</h1>
 
-        <transition-group tag="div" class="generator__content" name="fade">
+        <transition-group tag="div" class="generator__content" name="paragraph-fade">
             <p
                 class="generator__content-item"
                 v-for="(paragraph, index) in ipsumParagraphs"
@@ -150,13 +150,21 @@ export default Vue.extend({
 .generator {
     background-color: var(--generator-bkg-color);
     box-shadow: var(--generator-box-shadow);
-    border-radius: 16px;
     display: flex;
+    height: 100%;
     flex-direction: column;
-    max-height: 80vh;
-    max-width: 600px;
-    padding: 32px 40px;
-    width: 96%;
+    padding: 32px;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .generator {
+        border-radius: 16px;
+        max-height: 80vh;
+        max-width: 600px;
+        padding: 32px 40px;
+        width: 96%;
+    }
 }
 
 .generator__title {
@@ -178,13 +186,14 @@ export default Vue.extend({
     }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+// Paragraph Fade Animation
+.paragraph-fade-enter-active,
+.paragraph-fade-leave-active {
     transition: all 300ms linear;
 }
 
-.fade-enter,
-.fade-leave-to {
+.paragraph-fade-enter,
+.paragraph-fade-leave-to {
     opacity: 0;
 }
 </style>

@@ -38,6 +38,7 @@ export default Vue.extend({
     align-items: center;
     border-top: 2px solid var(--generator-main-color);
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
     padding-top: 16px;
 }

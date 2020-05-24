@@ -47,14 +47,39 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .selection {
+    background-color: #000000; // Gives more contrast
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     height: 100%;
     width: 100%;
 }
 
 .selection__item {
-    width: 50%;
+    height: 25%;
+    width: 100%;
+}
+
+@media (min-width: 768px) { 
+    .selection {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .selection__item {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .selection {
+        flex-wrap: nowrap;
+    }
+
+    .selection__item {
+        height: 100%;
+        width: 25%;
+    }
 }
 
 .selection__title {
