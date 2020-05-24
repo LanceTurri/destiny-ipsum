@@ -1,5 +1,18 @@
 // tslint:disable: max-line-length
-export default {
+export const SHAXX_INTROS = [
+    'What do you need?',
+    'No need to be polite.',
+    'Let\'s do this.',
+    'The honor is mine, Hivebane.',
+    'The slayer of Oryx.',
+    'Keep it up, Guardian.',
+    'Tick, tock. Get rolling.',
+    'Evening, Guardian',
+    'What is the holdup?',
+    'Here to cash in?',
+];
+
+export const SHAXX_DIALOGUE = {
     Tower: [
         'The Crucible is open.',
         'Crucible\'s open.',
@@ -60,7 +73,7 @@ export default {
         'I\'m not gonna tell you how I lost the horn; you couldn\'t handle it.',
         'I\'d tell you to hit me, but I think it would hurt.',
         'You wanna stare me down?',
-        'You think you take me?',
+        'You think you can take me?',
         'I\'ve seen the best, Guardian.',
         'You\'re the best.',
         'Your honor, Guardian.',

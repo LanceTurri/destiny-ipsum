@@ -1,5 +1,18 @@
 // tslint:disable: max-line-length
-export default {
+export const CAYDE_INTROS = [
+    'Been a long day?',
+    'Can you use something here?',
+    'Hey, back from the wild?',
+    'Hey Guardian, long day?',
+    'I got what you need.',
+    'Evenin\'',
+    'I\'m comin\' home... Ace.',
+    'How’s your sister?',
+    'The hotshot returns.',
+    'See you around.',
+];
+
+export const CAYDE_DIALOGUE = {
     Tower: [
         'Ah, a night person, I get it.',
         'Alright. Get out there. Do something meaningful with your life.',

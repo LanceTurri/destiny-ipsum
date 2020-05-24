@@ -9,10 +9,10 @@ import Vue from 'vue';
 import Generator from '@/components/Generator.vue';
 
 // Hardcoded data
-import CAYDE from '@/data/cayde';
-import DRIFTER from '@/data/drifter';
-import SHAXX from '@/data/shaxx';
-import VANCE from '@/data/vance';
+import { CAYDE_DIALOGUE } from '@/data/cayde';
+import { DRIFTER_DIALOGUE } from '@/data/drifter';
+import { SHAXX_DIALOGUE } from '@/data/shaxx';
+import { VANCE_DIALOGUE } from '@/data/vance';
 
 // Utility functions
 import { translateScriptToFlatArray } from '@/utils/translateScriptToFlatArray';
@@ -27,21 +27,21 @@ export default Vue.extend({
     created() {
         switch (this.$route.params.character) {
             case 'cayde':
-                this.dialogue = translateScriptToFlatArray(CAYDE);
+                this.dialogue = translateScriptToFlatArray(CAYDE_DIALOGUE);
                 break;
 
             case 'drifter':
-                this.dialogue = translateScriptToFlatArray(DRIFTER);
+                this.dialogue = translateScriptToFlatArray(DRIFTER_DIALOGUE);
                 break;
 
             case 'vance':
-                this.dialogue = translateScriptToFlatArray(VANCE);
+                this.dialogue = translateScriptToFlatArray(VANCE_DIALOGUE);
                 break;
 
             // Shaxx is the default
             case 'shaxx':
             default:
-                this.dialogue = translateScriptToFlatArray(SHAXX);
+                this.dialogue = translateScriptToFlatArray(SHAXX_DIALOGUE);
                 break;
         }
     },

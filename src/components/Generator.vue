@@ -11,7 +11,7 @@
 
         <GeneratorForm
             :count="ipsumParagraphs.length"
-            @generate="generateParagraph"
+            @generate="addParagraph"
             @prune="ipsumParagraphs.pop()"></GeneratorForm>
     </div>
 </template>
@@ -20,10 +20,17 @@
 import Vue from 'vue';
 import GeneratorForm from '@/components/GeneratorForm.vue';
 
+// Custom greeting intros
+import { CAYDE_INTROS } from '@/data/cayde';
+import { DRIFTER_INTROS } from '@/data/drifter';
+import { SHAXX_INTROS } from '@/data/shaxx';
+import { VANCE_INTROS } from '@/data/vance';
+
 export default Vue.extend({
     name: 'Generator',
     data: () => {
         return {
+            greetings: [] as string[],
             ipsumParagraphs: [] as string[],
         };
     },
@@ -33,28 +40,21 @@ export default Vue.extend({
             type: Array,
         },
     },
-    created() {
-        this.generateParagraph(2);
-        this.setCssVariables();
-    },
     computed: {
         greeting(): string {
-            const greetings = [
-                'What do you need?',
-                'No need to be polite.',
-                'Let\'s do this.',
-                'The honor is mine, Hivebane.',
-                'The slayer of Oryx.',
-                'Now You\'re ready to get to work.',
-                'Keep it up, Guardian.',
-                'Tick, tock. Get rolling.',
-            ];
-
-            const randomIndex = Math.floor(Math.random() * (greetings.length - 0)) + 0;
-            return greetings[randomIndex];
+            const randomIndex = Math.floor(Math.random() * (this.greetings.length - 0)) + 0;
+            return this.greetings[randomIndex];
         },
     },
     methods: {
+        async addParagraph(numberOfParagraphs = 1) {
+            this.generateParagraph(numberOfParagraphs);
+
+            await this.$nextTick(); // Wait till Vue has injected the new paragraph
+
+            const paragraphs = document.querySelectorAll('.generator__content-item');
+            paragraphs[paragraphs.length - 1].scrollIntoView();
+        },
         generateParagraph(numberOfParagraphs: number = 1) {
             const randomizedLines = this.randomizeArray(this.dialogue as string[]);
             // TODO: Add setting to being with 'Lorem Ipsum Destiny'
@@ -139,6 +139,33 @@ export default Vue.extend({
                     break;
             }
         },
+        setGreetings() {
+            const characterName = this.$route.params.character;
+
+            switch (characterName) {
+                case 'cayde':
+                    this.greetings = CAYDE_INTROS;
+                    break;
+
+                case 'drifter':
+                    this.greetings = DRIFTER_INTROS;
+                    break;
+
+                case 'vance':
+                    this.greetings = VANCE_INTROS;
+                    break;
+
+                case 'shaxx':
+                default:
+                    this.greetings = SHAXX_INTROS;
+                    break;
+            }
+        },
+    },
+    created() {
+        this.addParagraph(2);
+        this.setCssVariables();
+        this.setGreetings();
     },
     components: {
         GeneratorForm,
@@ -160,6 +187,7 @@ export default Vue.extend({
 @media (min-width: 640px) {
     .generator {
         border-radius: 16px;
+        height: auto;
         max-height: 80vh;
         max-width: 600px;
         padding: 32px 40px;

@@ -1,5 +1,18 @@
 // tslint:disable: max-line-length
-export default {
+export const DRIFTER_INTROS = [
+    'Embrace the darkness.',
+    'The executioner\'s come to town!',
+    'Back to action hotshot.',
+    'Hive! Bring a sword.',
+    'Welcome aboard.',
+    'Welcome to Gambit.',
+    'Prepare for transmat!',
+    'Get ready for transmat!',
+    'You\'re lookin\' to do business?',
+    'Make any wishes lately? Ha!',
+];
+
+export const DRIFTER_DIALOGUE = {
     'Gambit': [
         'Get me those Motes and I\'ll make you rich, brother. I promise.',
         'Get ready for a firefight, brother, and drop those Motes in the bank.',
@@ -176,9 +189,23 @@ export default {
         'I pay you, young bloods, partly, cause you crazy. And I like it, when you crazy in Gambit. But I pay you to keep quiet too. Don\'t go mouth than off to the Crucible Handler or the Commander. It will be a real quick way to get this operation shut down.',
     ],
     'Decision': [
-        'Hey, hey. Let\'s be straight with each other. I know the Vanguard\'s watching me. Probably want you to snitch, am I right? [laughs] If you\'re considering, I get it. Ol\' Drifter likes to play both sides, too. But think about it. You stand with them, you\'re a dead man/woman walking. Gambit\'s pissed off a whole lotta dangerous people. You stand with me, I got your back. Trust. So what\'ll it be?',
-        'You\'re pickin\' the Vanguard over me, huh? [chuckles] You punk. But every man’s/woman\'s got to have a code. I get it. I got one, too. Out of respect for principles (and a righteous fear of Ikora\'s big-ass shotgun)… you do you, kid. But, I\'m gonna change your mind about me. Whoever, or whatever you think I am… You\'re wrong. How\'s that suit ya? Snitch.',
-        'Hahaha! You got grit, kid. I admire a man/woman willing to risk the trust of everyone who\'s ever been kind to him/her. But lemme set the record straight - you\'re choosin\' to walk with a monster. Monsters survive. Trust. People change. Priorities change. Stick with me, and you\'ll see that. Now. As a symbol of our new partnership. I need a favor from ya. Got a shipment waiting in the Tangled Shore. Pick it up for me. I\'ll tell Spider you\'re comin\'.',
+        'Hey, hey. Let\'s be straight with each other.',
+        'I know the Vanguard\'s watching me. Probably want you to snitch, am I right? [laughs]',
+        'If you\'re considering, I get it. Ol\' Drifter likes to play both sides, too.',
+        'But think about it. You stand with them, you\'re a dead man/woman walking.',
+        'Gambit\'s pissed off a whole lotta dangerous people.',
+        'You stand with me, I got your back. Trust. So what\'ll it be?',
+        'You\'re pickin\' the Vanguard over me, huh? [chuckles]',
+        'You punk. But every man’s/woman\'s got to have a code. I get it. I got one, too.',
+        'Out of respect for principles (and a righteous fear of Ikora\'s big-ass shotgun)… you do you, kid.',
+        'But, I\'m gonna change your mind about me. Whoever, or whatever you think I am… You\'re wrong.',
+        'How\'s that suit ya? Snitch.',
+        'Hahaha! You got grit, kid. I admire a man/woman willing to risk the trust of everyone who\'s ever been kind to him/her.',
+        'But lemme set the record straight - you\'re choosin\' to walk with a monster. Monsters survive.',
+        'Trust. People change. Priorities change. Stick with me, and you\'ll see that.',
+        'Now. As a symbol of our new partnership. I need a favor from ya.',
+        'Got a shipment waiting in the Tangled Shore.',
+        'Pick it up for me. I\'ll tell Spider you\'re comin\'.',
     ],
     'Last Wish': [
         'Hey, what the hell is this? Is that you, brother/sister? Oh. Heh. I see. You\'ve made a friend. A friend that you can wish to. Haven\'t you heard? Those things never give you what you ask for. You\'re crazy, my friend. Seems like I\'m stuck in yer head for a while. What\'re we doin\' today? Huntin\' your wish friend? I\'m game! Woo!',
