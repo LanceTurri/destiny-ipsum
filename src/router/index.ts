@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import VueRouter, { Route } from 'vue-router';
 import Selection from '../views/Selection.vue';
 
 Vue.use(VueRouter);
@@ -19,6 +19,17 @@ const routes = [
         path: '/:character',
         name: 'Character',
         component: () => import(/* webpackChunkName: "character" */ '../views/Ipsum.vue'),
+        beforeEnter: (to: Route, from: Route, next: any) => {
+            const characterName = to.params.character;
+            const validCharacters = ['cayde', 'drifter', 'shaxx', 'vance'];
+
+            if (validCharacters.includes(characterName)) {
+                next();
+                return;
+            }
+
+            next('/');
+        },
     },
     {
         // will match everything

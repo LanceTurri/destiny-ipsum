@@ -36,7 +36,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .generator-form {
     align-items: center;
-    border-top: 2px solid #333;
+    border-top: 2px solid var(--generator-main-color);
     display: flex;
     justify-content: center;
     padding: 12px 0;
@@ -45,34 +45,42 @@ export default Vue.extend({
 .generator-form__button {
     align-items: center;
     background: none;
-    border: 2px solid #333333;
-    border-radius: 20px;
-    color: #333333;
+    border: 2px solid var(--generator-main-color);
+    border-radius: 24px;
+    color: var(--generator-main-color);
     cursor: pointer;
     display: flex;
-    height: 20px;
+    height: 24px;
     justify-content: center;
     margin: 0 16px;
     opacity: 0.8;
-    padding: 0;
+    padding: 12px;
     text-shadow: none;
     transition: 200ms all linear;
     user-select: none;
-    width: 20px;
+    width: 24px;
 
     &:hover {
-        background-color: #f5f5f5;
+        background-color: var(--generator-main-color);
+        color: var(--generator-hover-color);
         opacity: 1.0;
+
+        svg {
+            fill: var(--generator-hover-color);
+        }
     }
 }
 
 .generator-form__button-icon {
+    fill: var(--generator-main-color);
     flex-shrink: 0;
     height: 12px;
+    transition: all 200ms linear;
     width: 12px;
 }
 
 .generator-form__count {
+    color: var(--generator-main-color);
     font-weight: 700;
 }
 </style>

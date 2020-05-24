@@ -1,5 +1,5 @@
 <template>
-    <div class="generator">
+    <div class="generator" :class="`generator--${$route.params.character}`">
         <h1 class="generator__title">{{ greeting }}</h1>
 
         <transition-group tag="div" class="generator__content" name="fade">
@@ -34,7 +34,8 @@ export default Vue.extend({
         },
     },
     created() {
-        this.generateParagraph();
+        this.generateParagraph(2);
+        this.setCssVariables();
     },
     computed: {
         greeting(): string {
@@ -54,7 +55,7 @@ export default Vue.extend({
         },
     },
     methods: {
-        generateParagraph() {
+        generateParagraph(numberOfParagraphs: number = 1) {
             const randomizedLines = this.randomizeArray(this.dialogue as string[]);
             // TODO: Add setting to being with 'Lorem Ipsum Destiny'
             let paragraph = '';
@@ -68,6 +69,10 @@ export default Vue.extend({
             }
 
             this.ipsumParagraphs.push(paragraph);
+
+            if (numberOfParagraphs !== 1) {
+                this.generateParagraph(numberOfParagraphs - 1);
+            }
         },
         randomizeArray(array: string[]) {
             // Now we randomize the array to assist with the grouping later
@@ -96,6 +101,44 @@ export default Vue.extend({
 
             return arrayClone;
         },
+        setCssVariables() {
+            const root = document.documentElement;
+
+            switch (this.$route.params.character) {
+                case 'cayde':
+                    root.style.setProperty('--generator-bkg-color', 'rgba(109, 22, 25, 0.98)');
+                    root.style.setProperty('--generator-main-color', '#f5f5f5');
+                    root.style.setProperty('--generator-hover-color', '#333333');
+                    root.style.setProperty('--generator-box-shadow',
+                        '20px 20px 60px #5d1315, -20px -20px 60px #7d191d');
+                    break;
+
+                case 'drifter':
+                    root.style.setProperty('--generator-bkg-color', 'rgba(40, 138, 103, 0.95)');
+                    root.style.setProperty('--generator-main-color', '#f5f5f5');
+                    root.style.setProperty('--generator-hover-color', '#333333');
+                    root.style.setProperty('--generator-box-shadow',
+                        '20px 20px 60px #227558, -20px -20px 60px #2e9f76');
+                    break;
+
+                case 'vance':
+                    root.style.setProperty('--generator-bkg-color', 'rgba(228, 222, 86, 0.97)');
+                    root.style.setProperty('--generator-main-color', '#333333');
+                    root.style.setProperty('--generator-hover-color', '#f5f5f5');
+                    root.style.setProperty('--generator-box-shadow',
+                        '20px 20px 40px #c2bd49, -20px -20px 40px #ffff63');
+                    break;
+
+                case 'shaxx':
+                default:
+                    root.style.setProperty('--generator-bkg-color', 'rgba(155, 31, 23, 0.95)');
+                    root.style.setProperty('--generator-main-color', '#f5f5f5');
+                    root.style.setProperty('--generator-hover-color', '#333333');
+                    root.style.setProperty('--generator-box-shadow',
+                        '20px 20px 60px #841a14, -20px -20px 60px #b2241a');
+                    break;
+            }
+        },
     },
     components: {
         GeneratorForm,
@@ -105,12 +148,11 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .generator {
-    align-self: start;
-    background-color: rgba(255, 255, 255, 0.97);
+    background-color: var(--generator-bkg-color);
+    box-shadow: var(--generator-box-shadow);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
     max-height: 80vh;
     max-width: 600px;
     padding: 32px 40px;
@@ -118,11 +160,13 @@ export default Vue.extend({
 }
 
 .generator__title {
-    border-bottom: 2px solid #333;
+    color: var(--generator-main-color);
+    border-bottom: 2px solid var(--generator-main-color);
     padding-bottom: 8px;
 }
 
 .generator__content {
+    color: var(--generator-main-color);
     flex: 2 2 100%;
     overflow-y: auto;
     margin: 24px 0;

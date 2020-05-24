@@ -53,6 +53,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ipsum {
+    align-items: center;
     background-size: cover;
     background-position: center;
     display: flex;
