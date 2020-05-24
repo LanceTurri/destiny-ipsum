@@ -39,26 +39,26 @@ export default Vue.extend({
     border-top: 2px solid var(--generator-main-color);
     display: flex;
     justify-content: center;
-    padding: 12px 0;
+    padding-top: 16px;
 }
 
 .generator-form__button {
     align-items: center;
     background: none;
     border: 2px solid var(--generator-main-color);
-    border-radius: 24px;
+    border-radius: 28px;
     color: var(--generator-main-color);
     cursor: pointer;
     display: flex;
-    height: 24px;
+    height: 28px;
     justify-content: center;
     margin: 0 16px;
     opacity: 0.8;
-    padding: 12px;
+    padding: 6px;
     text-shadow: none;
     transition: 200ms all linear;
     user-select: none;
-    width: 24px;
+    width: 28px;
 
     &:hover {
         background-color: var(--generator-main-color);

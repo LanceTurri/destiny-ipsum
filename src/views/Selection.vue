@@ -12,9 +12,9 @@
         <router-link
             class="selection__item"
             tag="div"
-            to="/cayde">
-            <div class="selection__content selection__content--cayde">
-                <div class="selection__title">Cayde</div>
+            to="/vance">
+            <div class="selection__content selection__content--vance">
+                <div class="selection__title">Brother Vance</div>
             </div>
         </router-link>
 
@@ -30,9 +30,9 @@
         <router-link
             class="selection__item"
             tag="div"
-            to="/vance">
-            <div class="selection__content selection__content--vance">
-                <div class="selection__title">Brother Vance</div>
+            to="/cayde">
+            <div class="selection__content selection__content--cayde">
+                <div class="selection__title">Cayde</div>
             </div>
         </router-link>
     </div>

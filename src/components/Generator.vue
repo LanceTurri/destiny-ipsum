@@ -106,19 +106,19 @@ export default Vue.extend({
 
             switch (this.$route.params.character) {
                 case 'cayde':
-                    root.style.setProperty('--generator-bkg-color', 'rgba(109, 22, 25, 0.98)');
+                    root.style.setProperty('--generator-bkg-color', 'rgba(102, 51, 48, 1)');
                     root.style.setProperty('--generator-main-color', '#f5f5f5');
                     root.style.setProperty('--generator-hover-color', '#333333');
                     root.style.setProperty('--generator-box-shadow',
-                        '20px 20px 60px #5d1315, -20px -20px 60px #7d191d');
+                        '20px 20px 60px #572b29, -20px -20px 60px #753b37');
                     break;
 
                 case 'drifter':
-                    root.style.setProperty('--generator-bkg-color', 'rgba(40, 138, 103, 0.95)');
-                    root.style.setProperty('--generator-main-color', '#f5f5f5');
+                    root.style.setProperty('--generator-bkg-color', 'rgba(16, 42, 32, 0.96)');
+                    root.style.setProperty('--generator-main-color', '#d5d5d5');
                     root.style.setProperty('--generator-hover-color', '#333333');
                     root.style.setProperty('--generator-box-shadow',
-                        '20px 20px 60px #227558, -20px -20px 60px #2e9f76');
+                        '20px 20px 60px #0e241b, -20px -20px 60px #123025');
                     break;
 
                 case 'vance':
