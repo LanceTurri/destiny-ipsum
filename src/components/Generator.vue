@@ -78,28 +78,14 @@ export default Vue.extend({
             }
         },
         randomizeArray(array: string[]) {
-            // Now we randomize the array to assist with the grouping later
             const arrayClone = array.slice();
-            let currentIndex = array.length - 1;
-            let randomIndex = 0;
-            let temporaryArrayString = '';
 
-            // Let's randomize this array!
-            while (currentIndex !== 0) {
-                // Get a random number
-                randomIndex = Math.floor(Math.random() * currentIndex);
-
-                // Store temporary value from the current index
-                temporaryArrayString = array[currentIndex];
-
-                // Set the current index with the random index number
-                array[currentIndex] = array[randomIndex];
-
-                // Set the temporary index to the random index that was just used
-                array[randomIndex] = temporaryArrayString;
-
-                // Decrement index
-                currentIndex -= 1;
+            // fisher yates algorithm
+            for (let i = arrayClone.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * i);
+                const temp = arrayClone[i];
+                arrayClone[i] = arrayClone[j];
+                arrayClone[j] = temp;
             }
 
             return arrayClone;
