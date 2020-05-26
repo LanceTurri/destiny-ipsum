@@ -105,21 +105,25 @@ export default Vue.extend({
     }
 
     &--cayde {
+        background-color: #663330;
         background-image: url('../assets/cayde.jpg');
         color: #f5f5f5;
     }
 
     &--drifter {
+        background-color: #102A20;
         background-image: url('../assets/drifter.jpg');
         color: #f5f5f5;
     }
 
     &--shaxx {
+        background-color: #9B1F17;
         background-image: url('../assets/shaxx.jpg');
         color: #f5f5f5;
     }
 
     &--vance {
+        background-color: #E4DE56;
         background-image: url('../assets/vance.jpg');
         color: #333333;
     }
